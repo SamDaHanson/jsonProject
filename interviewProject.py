@@ -47,7 +47,7 @@ def main():
 		x = x + 1
 
 	x = 0
-	sortedData = []
+	setData = []
 	while x < len(allData):
 		oneSet = []
 		data = allData[x]
@@ -58,25 +58,25 @@ def main():
 						oneSet.append(a[1].lower())
 						#print(a[1].lower())
 						#print(oneSet)
-		sortedData.append(oneSet)
-		#rint(sortedData[x])
+		setData.append(oneSet)
+		#rint(setData[x])
 		x = x + 1
 
 	sizeOfSets = []
-	similarities = []
-
+	overlapData = []
+	print()
 	print("Cool Solution:")
 
 	x = 0
-	while x < len(sortedData):
+	while x < len(setData):
 		print()
-		print(str(x)+") "+str(data_sets[x])+" has "+str(len(sortedData[x]))+" companies:")
-		sizeOfSets.append(len(sortedData[x]))
-		print(sortedData[x])
+		print(str(x)+") "+str(data_sets[x])+" has "+str(len(setData[x]))+" companies:")
+		sizeOfSets.append(len(setData[x]))
+		print(setData[x])
 		y = x + 1
-		while y < len(sortedData):
-			print("With "+str(len(intersection(sortedData[x],sortedData[y])))+" companies that overlap with "+str(data_sets[y])+" ("+str(y)+")") 
-			similarities.append(len(intersection(sortedData[x],sortedData[y])))
+		while y < len(setData):
+			print("With "+str(len(intersection(setData[x],setData[y])))+" companies that overlap with "+str(data_sets[y])+" ("+str(y)+")") 
+			overlapData.append(len(intersection(setData[x],setData[y])))
 			y = y + 1
 		x = x + 1
 
@@ -85,7 +85,7 @@ def main():
 	for value in sizeOfSets:
 		print(value, end=" ")
 	print('| ', end=" ")
-	for value in similarities:
+	for value in overlapData:
 		print(value, end=" ")
 
 main()
